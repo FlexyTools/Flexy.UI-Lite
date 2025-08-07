@@ -13,8 +13,7 @@
 		
 		[Header("Window Open Options")]
 		[SerializeField] AssetRef<State>	_windowToOpen;
-		[SerializeField] EOpenType			_openType;
-
+		
 		private		Single	_lastClickTime;
 		private		Single	_enableTime;
 		private		Action	_action;
@@ -57,15 +56,12 @@
 			_action?.Invoke( );
 				
 			Clicked.Raise( this );
-			//else												//Not portable, use Button prefab for default click sound 
-			//	this.GetService<UIDefaultSfx>( ).DefaultClickSfx.PlayOneShot( this );
 		}
 
 		private void OpenWindow( )
 		{
-			var panel = gameObject.GetComponentInParent<FlowItem>( true );
-			
-			panel.GameStage.Open( _windowToOpen, _openType );
+			var state = gameObject.GetComponentInParent<State>( true );
+			state.Node.Graph.Open( _windowToOpen, state );
 		}
 
 		private		void	OnEnable	( )	

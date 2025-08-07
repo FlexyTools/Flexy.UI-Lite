@@ -18,7 +18,7 @@ global using Unity.Mathematics;
 global using Cysharp.Threading.Tasks;
 
 global using Object = System.Object;
+global using static Flexy.Core.TweenStatic;
 
 using System.Runtime.CompilerServices;
-
 [assembly: InternalsVisibleTo("Flexy.UI.Editor")]

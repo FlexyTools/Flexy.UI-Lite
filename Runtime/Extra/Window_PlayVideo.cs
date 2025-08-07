@@ -16,10 +16,6 @@ namespace Flexy.UI
 
 		private VideoPlayer _player;
 
-		protected override void OnSetOpenParams(Object openData)
-		{
-			Url = openData as String ?? Url;
-		}
 		protected override void OnShow()
 		{
 			PlayVideoAsync().Forget();
@@ -27,18 +23,20 @@ namespace Flexy.UI
 
 		private async UniTask PlayVideoAsync( )
 		{
-			if ( !String.IsNullOrEmpty( Url ) )
+			var url = OpenParams as String ?? Url;
+		
+			if ( !String.IsNullOrEmpty( url ) )
 			{
 				if ( Camera.main && (!IsVideoWasPlayed || !PlayOnce ))
 				{
-					Debug.Log			( $"[PlayVideoStep] - Playing video {Url}..." );
+					Debug.Log			( $"[PlayVideoStep] - Playing video {url}..." );
 					IsVideoWasPlayed = true;
 
 					var camera = Camera.main;
 					_player = camera.gameObject.AddComponent<VideoPlayer>(  );
 
 					_player.source       = VideoSource.Url;
-					_player.url         = Url;
+					_player.url         = url;
 					_player.targetCamera = camera;
 					_player.renderMode   = VideoRenderMode.CameraNearPlane;
 					_player.Play(  );
