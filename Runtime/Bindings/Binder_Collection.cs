@@ -3,25 +3,20 @@
 	[BindTo(typeof(Collection))]
 	public class Binder_Collection : ABinder
 	{
-		[Header("Main")]
-		[Tooltip("Container for items")]
-		[SerializeField] protected Transform _container;
-		[Tooltip("Prefab to instantiate for each item")]
-		[SerializeField] protected GameObject _prefab;
-		[Tooltip("Prefab to instantiate for each group")]
-		[SerializeField] protected GameObject _prefabGroup;
+		[SerializeField] protected	Transform	_container;
+		[SerializeField] protected	GameObject	_prefab;
 
 		protected Func<Collection> _getter;
 		protected Boolean _preventDestroyItemsOnDisable;
-		public	Transform					Container => _container;
+		
+		public	Transform	Container => _container;
 
-		protected override void	Bind				( Boolean init )			
+		protected override	void	Bind		( Boolean init )	
 		{
 			if(_container == null || _prefab == null || _getter == null)
 				return;
 
 			var collection		= _getter.Invoke();
-			var prevData		= default(System.Object);
 			var dataIndex		= -1;
 			var itemsContainer	= _container;
 
@@ -34,26 +29,6 @@
 			{
 				dataIndex++;
 				
-				//if we want to create group separators
-				collection.GroupInjector?.Invoke( prevData, data, dataIndex, (prefabIndex,injectionItem) => 
-				{
-					var groupGo = Instantiate(_prefabGroup, _container, false);
-
-					groupGo.transform.localScale = Vector3.one;
-					
-					if( !groupGo.activeSelf )
-						groupGo.SetActive( true );
-
-					var newContainer = collection.GroupSetup( groupGo, injectionItem );
-					
-					if( newContainer != null )
-					{
-						itemsContainer = newContainer;
-					}
-				} );
-
-				prevData = data;
-
 				var itemObj = Instantiate(_prefab);
 				itemObj.transform.SetParent(itemsContainer, false);
 				itemObj.transform.localScale = Vector3.one;
@@ -71,20 +46,14 @@
 			collection.DoneCallback?.Invoke( this );
 		}
 
-		protected void		Awake				( )							
+		protected			void	Awake		( )		
 		{
 			Init(ref _getter);
 				
 			_prefab.SetActive( false );
 			_prefab.transform.SetParent( _container.parent );
-
-			if ( _prefabGroup.IsAlive( ) )
-			{ 
-				_prefabGroup.SetActive( false );
-				_prefabGroup.transform.SetParent( _container.parent );
-			}
 		}
-		protected override void OnDisable			( )							
+		protected override	void	OnDisable	( )		
 		{
 			base.OnDisable( );
 			
