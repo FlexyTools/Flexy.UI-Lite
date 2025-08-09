@@ -1,6 +1,6 @@
 namespace Flexy.UI
 {
-	public class Service_GameFlowUI : GameFlowService
+	public class Service_UIGameFlow : Service_GameFlow
 	{
 		private String _cachedAppRev;
 		
