@@ -1,7 +1,7 @@
 ﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Boolean))]
-	public class ButtonEnabledBinder : ABinder
+	public class Binder_ButtonEnabled : ABinder
 	{
 		[SerializeField]
 		private						Button	_button;

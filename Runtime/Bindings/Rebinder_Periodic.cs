@@ -1,7 +1,7 @@
 ﻿namespace Flexy.UI.Bindings
 {
 	[RequireComponent(typeof(ABinder))]
-	public class PeriodicRebinder : MonoBehaviour
+	public class Rebinder_Periodic : MonoBehaviour
 	{
 		[SerializeField] TypeUpdate	_typeUpdate				= TypeUpdate.Update;
 		[SerializeField] Single		_periodSeconds;

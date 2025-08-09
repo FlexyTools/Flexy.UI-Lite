@@ -1,7 +1,7 @@
 ﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Collection))]
-	public class CollectionBinder : ABinder
+	public class Binder_Collection : ABinder
 	{
 		[Header("Main")]
 		[Tooltip("Container for items")]

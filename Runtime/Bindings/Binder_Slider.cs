@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Single))]
-	public class SliderBinder : ABinder
+	public class Binder_Slider : ABinder
 	{
 		[SerializeField, WillFind("Will get from this GO")]
 		private						Slider	_slider;

@@ -7,7 +7,7 @@ namespace Flexy.UI.Bindings
 {
 	public struct Collection : IEnumerable
 	{
-		public Collection( IEnumerable collection, SetupCallback setup, IEqualityComparer<Object> comparer = null, Action<CollectionBinder> doneCallback = null )
+		public Collection( IEnumerable collection, SetupCallback setup, IEqualityComparer<Object> comparer = null, Action<Binder_Collection> doneCallback = null )
 		{
 			_collection	= collection;
 			_comparer	= comparer;
@@ -17,7 +17,7 @@ namespace Flexy.UI.Bindings
 			_groupSetup = null;
 			_doneCallback = doneCallback;
 		}
-		public Collection( IEnumerable collection, SetupCallback setup, GroupInjectorCallback groupInjector, GroupSetupCallback	groupSetup, IEqualityComparer<Object> comparer = null, Action<CollectionBinder> doneCallback = null )
+		public Collection( IEnumerable collection, SetupCallback setup, GroupInjectorCallback groupInjector, GroupSetupCallback	groupSetup, IEqualityComparer<Object> comparer = null, Action<Binder_Collection> doneCallback = null )
 		{
 			_collection	= collection;
 			_comparer	= comparer;
@@ -34,12 +34,12 @@ namespace Flexy.UI.Bindings
 		private readonly SetupCallback			_setup;
 		private readonly GroupInjectorCallback	_groupInjector;
 		private readonly GroupSetupCallback		_groupSetup;
-		private readonly Action<CollectionBinder>	_doneCallback;
+		private readonly Action<Binder_Collection>	_doneCallback;
 
 		public	IEnumerable					InnerCollection	=> _collection;
 		public	IEqualityComparer<Object>	Comparer		=> _comparer;
 
-		public  Action<CollectionBinder>	DoneCallback	=> _doneCallback;
+		public  Action<Binder_Collection>	DoneCallback	=> _doneCallback;
 		public	SetupCallback				Setup			=> _setup;
 		public	GroupSetupCallback			GroupSetup		=> _groupSetup;
 		public	GroupInjectorCallback		GroupInjector	=> _groupInjector;

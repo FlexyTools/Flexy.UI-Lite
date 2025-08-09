@@ -1,10 +1,7 @@
-﻿using System;
-using UnityEngine;
-
-namespace Flexy.UI.Bindings
+﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Boolean))]
-	public class BehaviourEnabledBooleanBinder : ABinder
+	public class Binder_BehaviourEnabledBoolean : ABinder
 	{
 		[SerializeField]
 		private						Behaviour		_true;
