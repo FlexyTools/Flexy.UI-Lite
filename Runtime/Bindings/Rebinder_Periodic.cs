@@ -1,6 +1,6 @@
 ﻿namespace Flexy.UI.Bindings
 {
-	[RequireComponent(typeof(ABinder))]
+	[RequireComponent(typeof(Binder))]
 	public class Rebinder_Periodic : MonoBehaviour
 	{
 		[SerializeField] TypeUpdate	_typeUpdate				= TypeUpdate.Update;
@@ -8,11 +8,11 @@
 		[SerializeField] Boolean	_isUnscaledTime			= true;
 
 		private			Single		_timer;
-		private			ABinder[]	_binders;
+		private			Binder[]	_binders;
 
 		private void Awake ( )	
 		{
-			_binders = GetComponents<ABinder>( ).Where( c => c.enabled ).ToArray( );
+			_binders = GetComponents<Binder>( ).Where( c => c.enabled ).ToArray( );
 		}
 		private void OnEnable( )
 		{

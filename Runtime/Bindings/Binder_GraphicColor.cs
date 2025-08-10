@@ -1,22 +1,28 @@
 ﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Color))]
-	public class Binder_GraphicColor : ABinder
+	public class Binder_GraphicColor : Binder
 	{
 		[SerializeField] private Graphic _widget;
 		[SerializeField] Boolean _useCustomAlpha;
 		[Range(0f,1f)]
 		[SerializeField] Single _customAlpha;
 	
-		private Color _value;
-    
-		private Func<Color> _getter;
+		private Color		_value;
+		private Func<Color>	_getter;
 
-		protected override void Bind(Boolean init)
+		private				void	Awake	( )
+		{
+			if (_widget == null)
+				_widget = GetComponent<Graphic>();
+
+			Init(ref _getter);
+		}
+		protected override	void	Bind	( Boolean init )
 		{
 			var color = _getter();
     
-			if( !init && _value == color )
+			if (!init && _value == color)
 				return;
 	
 			_value = color;
@@ -25,14 +31,6 @@
 				color.a = _customAlpha;
       
 			_widget.color = color;
-		}
-
-		private void Awake()
-		{
-			if (_widget == null)
-				_widget = GetComponent<Graphic>();
-
-			Init(ref _getter);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Collection))]
-	public class Binder_Collection : ABinder
+	public class Binder_Collection : Binder
 	{
 		[SerializeField] protected	Transform	_container;
 		[SerializeField] protected	GameObject	_prefab;

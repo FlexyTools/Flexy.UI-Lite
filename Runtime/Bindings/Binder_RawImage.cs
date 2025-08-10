@@ -1,7 +1,7 @@
 ﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Texture2D))]
-	public class Binder_RawImage : ABinder
+	public class Binder_RawImage : Binder
 	{
 		[SerializeField]
 		private						RawImage		_texture;

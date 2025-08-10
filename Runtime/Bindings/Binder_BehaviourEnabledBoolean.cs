@@ -1,7 +1,7 @@
 ﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Boolean))]
-	public class Binder_BehaviourEnabledBoolean : ABinder
+	public class Binder_BehaviourEnabledBoolean : Binder
 	{
 		[SerializeField]
 		private						Behaviour		_true;
