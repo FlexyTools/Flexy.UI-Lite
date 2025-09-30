@@ -1,5 +1,4 @@
-﻿using Flexy.Core.Tweens;
-using Random = UnityEngine.Random;
+﻿using Random = UnityEngine.Random;
 
 namespace Flexy.UI.Bindings
 {
@@ -13,7 +12,6 @@ namespace Flexy.UI.Bindings
 		[SerializeField]			Boolean				_useTween;
 		[SerializeField]			Boolean				_startFromZero;
 		[SerializeField]			Single				_tweenTime;
-		[SerializeField]			Ease				_tweenEaseType = Ease.OutCirc;
 		
 		private						Func<Single>		_getter;
 		private						Action<Single>		_setter;
@@ -39,15 +37,7 @@ namespace Flexy.UI.Bindings
 		}
 		private						void			DoBind			( Single newValue )
 		{
-			var currentVal = _startFromZero? 0: _slider.value;
-			if (_useTween && Math.Abs( currentVal - newValue ) > 0.001)
-			{
-				Tween.Value( _slider.value, newValue, _tweenTime, _tweenEaseType ).BindTo( _slider, static (v, s) => s.value = v ).Run( );
-			}
-			else
-			{
-				_slider.value = newValue;
-			}
+			_slider.value = newValue;
 		}
 		private						void					Awake			( )					
 		{
