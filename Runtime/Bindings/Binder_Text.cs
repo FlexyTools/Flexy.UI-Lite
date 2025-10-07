@@ -5,16 +5,14 @@ namespace Flexy.UI.Bindings
 	[BindTo(typeof(String))]
 	public class Binder_Text : Binder
 	{
-		[SerializeField, WillFind("Will get from this GO")]
-		protected						TMP_Text	_label;
+		[Tooltip("Will get from this GO if null")]
+		[SerializeField]	TMP_Text	_label;
+		[SerializeField]	Boolean		_makeUpperCase;
 
-		[SerializeField]
-		protected                     bool            _makeUpperCase = false;
-
-		protected					Func<String>	_getter;
-		private						String _value;
+		private		Func<String>	_getter;
+		private		String			_value;
 		
-		protected override			void			Bind			( Boolean init )
+		protected override	void	Bind	( Boolean init )
 		{
 			var text = _getter();
 
@@ -29,8 +27,7 @@ namespace Flexy.UI.Bindings
             
 			_label.text					= text;
 		}
-
-		private						void			Awake			( )				
+		private				void	Awake	( )				
 		{
 			if( _label == null )
 				_label = GetComponent<TMP_Text> ( );

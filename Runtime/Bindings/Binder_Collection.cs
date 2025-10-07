@@ -1,4 +1,7 @@
-﻿namespace Flexy.UI.Bindings
+﻿using Flexy.Core.Extensions;
+using GameObject = UnityEngine.GameObject;
+
+namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Collection))]
 	public class Binder_Collection : Binder

@@ -1,3 +1,5 @@
+using Flexy.Core.Extensions;
+
 namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Sprite))]
@@ -9,7 +11,7 @@ namespace Flexy.UI.Bindings
 
 		private				Func<Sprite> _getter;
 
-		protected override			void					Bind				( Boolean init )				
+		protected override	void		Bind	( Boolean init )	
 		{
 			var sprite = _getter();
 
@@ -19,8 +21,7 @@ namespace Flexy.UI.Bindings
 			if (sprite.IsAlive())		_image.sprite = sprite;
 			else if (!_ignoreNullValue)	_image.sprite = null;
 		}
-
-		private						void					Awake				( )				
+		private				void		Awake	( )					
 		{
 			if (!_image)
 				_image = GetComponent<Image>();

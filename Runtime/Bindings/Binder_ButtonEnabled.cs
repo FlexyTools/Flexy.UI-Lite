@@ -3,10 +3,8 @@
 	[BindTo(typeof(Boolean))]
 	public class Binder_ButtonEnabled : Binder
 	{
-		[SerializeField]
-		private						Button	_button;
-		[SerializeField]
-		private						Boolean			_revert;
+		[SerializeField] 			Button			_button;
+		[SerializeField] 			Boolean			_revert;
 		
 		private						Func<Boolean>	_getter;
 
@@ -17,7 +15,6 @@
 			if( val != _button.interactable )
 				_button.interactable = val;
 		}
-
 		private						void			Awake			( )					
 		{
 			if( _button == null )

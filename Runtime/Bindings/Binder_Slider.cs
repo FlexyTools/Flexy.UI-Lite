@@ -1,24 +1,21 @@
-﻿using Random = UnityEngine.Random;
-
-namespace Flexy.UI.Bindings
+﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Single))]
 	public class Binder_Slider : Binder
 	{
-		[SerializeField, WillFind("Will get from this GO")]
-		private						Slider	_slider;
+		[SerializeField, Tooltip("Will get from this GO if null")]
+		private		Slider	_slider;
 
 		[Header("Tween")]
-		[SerializeField]			Boolean				_useTween;
-		[SerializeField]			Boolean				_startFromZero;
-		[SerializeField]			Single				_tweenTime;
+		[SerializeField]		Boolean	_useTween;
+		[SerializeField]		Boolean	_startFromZero;
+		[SerializeField]		Single	_tweenTime;
 		
-		private						Func<Single>		_getter;
-		private						Action<Single>		_setter;
-
-		private						Boolean				_inset;
+		private		Func<Single>		_getter;
+		private		Action<Single>		_setter;
+		private		Boolean				_inset;
 		
-		protected override			void					Bind			( Boolean init )				
+		protected override		void	Bind			( Boolean init )	
 		{
 			if( _inset || !Application.isPlaying )
 				return;
@@ -35,11 +32,11 @@ namespace Flexy.UI.Bindings
 
 			_setter		= setter;
 		}
-		private						void			DoBind			( Single newValue )
+		private					void	DoBind			( Single newValue )	
 		{
 			_slider.value = newValue;
 		}
-		private						void					Awake			( )					
+		private					void	Awake			( )					
 		{
 			if( _slider == null )
 				_slider = GetComponent<Slider>();
@@ -51,7 +48,7 @@ namespace Flexy.UI.Bindings
 			
 		}
 
-		private						void					OnValueChanged	( Single value )	
+		private					void	OnValueChanged	( Single value )	
 		{
 			if( _setter == null )
 				return;
@@ -60,11 +57,5 @@ namespace Flexy.UI.Bindings
 			_setter	( value );
 			_inset	= false;
 		}
-
-		[ContextMenu("Test")]		void			Test			( )	
-	    {
-			DoBind(Random.Range( 0, 1f ));
-	    }
-
 	}
 }

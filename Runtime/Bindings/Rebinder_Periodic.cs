@@ -3,43 +3,43 @@
 	[RequireComponent(typeof(Binder))]
 	public class Rebinder_Periodic : MonoBehaviour
 	{
-		[SerializeField] TypeUpdate	_typeUpdate				= TypeUpdate.Update;
+		[SerializeField] TypeUpdate	_typeUpdate		= TypeUpdate.Update;
 		[SerializeField] Single		_periodSeconds;
-		[SerializeField] Boolean	_isUnscaledTime			= true;
+		[SerializeField] Boolean	_isUnscaledTime	= true;
 
-		private			Single		_timer;
-		private			Binder[]	_binders;
+		private		Single		_timer;
+		private		Binder[]	_binders;
 
-		private void Awake ( )	
+		private		void	Awake		( )	
 		{
 			_binders = GetComponents<Binder>( ).Where( c => c.enabled ).ToArray( );
 		}
-		private void OnEnable( )
+		private		void	OnEnable	( )	
 		{
 		  _timer = Time.time;
 		}
-		private void Update ( )	
+		private		void	Update		( )	
 		{
 			if (_typeUpdate == TypeUpdate.Update)
 			{
 				Tick(  );
 			}
 		}
-		private void LateUpdate ( )	
+		private		void	LateUpdate	( )	
 		{
 			if (_typeUpdate == TypeUpdate.LateUpdate)
 			{
 				Tick(  );
 			}
 		}
-		private void FixedUpdate ( )	
+		private		void	FixedUpdate	( )	
 		{
 			if (_typeUpdate == TypeUpdate.FixedUpdate)
 			{
 				Tick(  );
 			}
 		}
-		private void Tick()
+		private		void	Tick		( )	
 		{
 			var now = _isUnscaledTime ? Time.unscaledTime : Time.time;
 			if( now - _timer < _periodSeconds )
@@ -53,6 +53,7 @@
 				//Profiler.EndSample( );
 			}
 		}
+		
 		private enum TypeUpdate
 		{
 			LateUpdate,

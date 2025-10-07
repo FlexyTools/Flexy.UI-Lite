@@ -1,4 +1,4 @@
-﻿namespace Flexy.UI
+﻿namespace Flexy.UI.Bindings
 {
 	public class Binder_ButtonClickOpenWindow : MonoBehaviour
 	{

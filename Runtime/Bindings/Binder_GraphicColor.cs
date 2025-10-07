@@ -3,7 +3,7 @@
 	[BindTo(typeof(Color))]
 	public class Binder_GraphicColor : Binder
 	{
-		[SerializeField] private Graphic _widget;
+		[SerializeField] Graphic _widget;
 		[SerializeField] Boolean _useCustomAlpha;
 		[Range(0f,1f)]
 		[SerializeField] Single _customAlpha;
