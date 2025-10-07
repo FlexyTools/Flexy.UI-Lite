@@ -2,7 +2,7 @@
 {
 	public struct Collection : IEnumerable
 	{
-		public Collection( IEnumerable collection, SetupCallback setup, IEqualityComparer<Object> comparer = null, Action<Binder_Collection> doneCallback = null )
+		public Collection( IEnumerable collection, SetupCallback setup = null, IEqualityComparer<Object> comparer = null, Action<Binder_Collection> doneCallback = null )
 		{
 			_collection		= collection;
 			_comparer		= comparer;
@@ -24,5 +24,10 @@
 		public	IEnumerator					GetEnumerator()	=> _collection.GetEnumerator();
 
 		public delegate void				SetupCallback	( GameObject widget, Object data, Boolean isNew, Int32 index );
+	}
+	
+	public interface IAutoSetup
+	{
+		void Setup	( Object obj );
 	}
 }
