@@ -7,7 +7,6 @@ namespace Flexy.UI.Bindings
 	{
 		[Tooltip("Will get from this GO if null")]
 		[SerializeField]	TMP_Text	_label;
-		[SerializeField]	Boolean		_makeUpperCase;
 
 		private		Func<String>	_getter;
 		private		String			_value;
@@ -22,9 +21,6 @@ namespace Flexy.UI.Bindings
 			
 			_value = text;
 			
-			if (_makeUpperCase)
-				text = text.ToUpper();
-            
 			_label.text					= text;
 		}
 		private				void	Awake	( )				

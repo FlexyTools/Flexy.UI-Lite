@@ -4,6 +4,7 @@ using GameObject = UnityEngine.GameObject;
 namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Collection))]
+	[DefaultExecutionOrder(-90)]
 	public class Binder_Collection : Binder
 	{
 		[SerializeField] protected	Transform	_container;
