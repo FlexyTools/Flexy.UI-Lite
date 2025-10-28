@@ -4,7 +4,7 @@ namespace Flexy.UI
 	[DisallowMultipleComponent]
 	public class AutoCanvasScaler : CanvasScaler
 	{
-		private Canvas _canvas;
+		private Canvas _canvas = null!;
 
 		protected override void OnEnable()
 		{

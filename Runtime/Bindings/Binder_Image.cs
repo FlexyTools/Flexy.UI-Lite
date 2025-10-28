@@ -5,11 +5,11 @@ namespace Flexy.UI.Bindings
 	[BindTo(typeof(Sprite))]
 	public class Binder_Image : Binder
 	{
-		[SerializeField] 	Image		_image;
+		[SerializeField] 	Image		_image = null!;
 		[SerializeField] 	Boolean		_disableOnNullValue		= true;
 		[SerializeField] 	Boolean		_ignoreNullValue		= true;
 
-		private				Func<Sprite> _getter;
+		private				Func<Sprite> _getter = null!;
 
 		protected override	void		Bind	( Boolean init )	
 		{

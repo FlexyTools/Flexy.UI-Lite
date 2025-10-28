@@ -7,10 +7,10 @@ namespace Flexy.UI.Bindings
 	[DefaultExecutionOrder(-90)]
 	public class Binder_Collection : Binder
 	{
-		[SerializeField] protected	Transform	_container;
-		[SerializeField] protected	GameObject	_prefab;
+		[SerializeField] protected	Transform	_container = null!;
+		[SerializeField] protected	GameObject	_prefab = null!;
 
-		protected Func<Collection> _getter;
+		protected Func<Collection> _getter = null!;
 		protected Boolean _preventDestroyItemsOnDisable;
 		
 		public	Transform	Container => _container;

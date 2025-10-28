@@ -6,10 +6,10 @@ namespace Flexy.UI.Bindings
 	public class Binder_Text : Binder
 	{
 		[Tooltip("Will get from this GO if null")]
-		[SerializeField]	TMP_Text	_label;
+		[SerializeField]	TMP_Text	_label = null!;
 
-		private		Func<String>	_getter;
-		private		String			_value;
+		private		Func<String>	_getter = null!;
+		private		String?			_value;
 		
 		protected override	void	Bind	( Boolean init )
 		{

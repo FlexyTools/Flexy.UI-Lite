@@ -1,4 +1,4 @@
-﻿namespace Flexy.UI
+﻿namespace Flexy.UI.Extra
 {
 	public class Window_Empty : State { }
 }

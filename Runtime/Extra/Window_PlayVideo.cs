@@ -1,10 +1,10 @@
 ﻿using UnityEngine.Video;
 
-namespace Flexy.UI
+namespace Flexy.UI.Extra
 {
 	public class Window_PlayVideo : State
 	{
-		public String	Url;
+		public String?	Url;
 		public Boolean	PlayOnce = true;
 		public Boolean	SkipByAnyKey = true;
 
@@ -14,57 +14,56 @@ namespace Flexy.UI
 			set => PlayerPrefs.SetInt( "Flexy.Boot.IsVideoWasPlayed", value ? 1 : 0 );
 		}
 
-		private VideoPlayer _player;
+		private VideoPlayer? _player;
 
-		protected override void OnShow()
+		protected override void OnShow			( )		
 		{
 			PlayVideoAsync().Forget();
 		}
 
-		private async UniTask PlayVideoAsync( )
+		private async	UniTask	PlayVideoAsync	( )		
 		{
 			var url = OpenParams as String ?? Url;
 		
-			if ( !String.IsNullOrEmpty( url ) )
+			if (!String.IsNullOrEmpty(url))
 			{
-				if ( Camera.main && (!IsVideoWasPlayed || !PlayOnce ))
+				if (Camera.main && (!IsVideoWasPlayed || !PlayOnce))
 				{
-					Debug.Log			( $"[PlayVideoStep] - Playing video {url}..." );
+					Debug.Log		( $"[Window_PlayVideo] - Playing video {url}..." );
 					IsVideoWasPlayed = true;
 
 					var camera = Camera.main;
-					_player = camera.gameObject.AddComponent<VideoPlayer>(  );
+					_player = camera.gameObject.AddComponent<VideoPlayer>();
 
 					_player.source       = VideoSource.Url;
 					_player.url         = url;
 					_player.targetCamera = camera;
 					_player.renderMode   = VideoRenderMode.CameraNearPlane;
-					_player.Play(  );
+					_player.Play();
 
-					await UniTask.WaitWhile( ( ) => !_player.isPrepared || _player.isPlaying );
+					await UniTask.WaitWhile(() => !_player.isPrepared || _player.isPlaying);
 
 					_player.Stop();
-					Destroy( _player );
+					Destroy(_player);
+					_player = null;
 					
 					//wait destroy
-					await UniTask.NextFrame(  );
+					await UniTask.NextFrame();
 				}
 			}
 			
-			Close( );
+			Close();
 		}
 
-		private void Update( )
+		private			void	Update			( )		
 		{
-			if( SkipByAnyKey && (Input.anyKeyDown || Input.touchCount > 0) && _player && _player.isPlaying )
-				_player.Stop(  );
+			if (SkipByAnyKey && (Input.anyKeyDown || Input.touchCount > 0) && _player && _player.isPlaying)
+				_player.Stop();
 		}
-
-		private void OnValidate( )
+		private			void	OnValidate		( )		
 		{
-			if( String.IsNullOrEmpty( Url ) )
-				Debug.LogError( $"[PlayVideoStep] Video URL is not defined" );
+			if (String.IsNullOrEmpty(Url))
+				Debug.LogError( $"[Window_PlayVideo] Video URL is not defined" );
 		}
-		
 	}
 }

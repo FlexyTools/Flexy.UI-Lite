@@ -2,7 +2,7 @@ namespace Flexy.UI
 {
 	public class BindableAppInfo : BindableBehaviour
 	{
-		private String _cachedAppRev;
+		private String? _cachedAppRev;
 		
 		[Bindable] public	String			AppName				=> Application.productName;
 		[Bindable] public	String			AppBundle			=> Application.identifier;

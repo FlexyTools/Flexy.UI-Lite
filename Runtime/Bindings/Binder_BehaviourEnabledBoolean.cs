@@ -3,19 +3,19 @@
 	[BindTo(typeof(Boolean))]
 	public class Binder_BehaviourEnabledBoolean : Binder
 	{
-		[SerializeField]			Behaviour		_true;
-		[SerializeField]			Behaviour		_false;
+		[SerializeField]	Behaviour		_true	= null!;
+		[SerializeField]	Behaviour		_false	= null!;
 		
-		private						Func<Boolean>	_getter;
+		private				Func<Boolean>	_getter	= null!;
 
-		protected override			void			Bind			( Boolean init )	
+		protected override	void	Bind	( Boolean init )	
 		{
 		    var isTrue					= _getter( );
 
 		    if( _true != null )			_true.enabled =  isTrue;
 			if( _false != null )		_false.enabled =  !isTrue;
 		}
-		private						void			Awake			( )					
+		private				void	Awake	( )					
 		{
 			Init( ref _getter );
 		}

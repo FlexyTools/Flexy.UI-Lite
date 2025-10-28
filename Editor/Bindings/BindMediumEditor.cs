@@ -9,9 +9,9 @@ namespace Flexy.UI.Editor.Bindings;
 public class BindMediumEditor: UnityEditor.Editor
 {
 	private		Boolean		_findEnabled;
-	private		Type[]		_extractedTypes;
+	private		Type[]?		_extractedTypes;
 	
-	public override void OnInspectorGUI()
+	public override	void	OnInspectorGUI				( )		
 	{
 		serializedObject.UpdateIfRequiredOrScript();
 		
@@ -20,8 +20,7 @@ public class BindMediumEditor: UnityEditor.Editor
 			
 		serializedObject.ApplyModifiedProperties();
 	}
-		
-	private void DrawExpectedType		( )		
+	private			void	DrawExpectedType			( )		
 	{
 		var propTypeName = serializedObject.FindProperty("ExpectedType"); 
 			
@@ -50,7 +49,7 @@ public class BindMediumEditor: UnityEditor.Editor
 			{
 				if (_extractedTypes == null)
 				{
-					UnityEngine.Object obj = null;
+					UnityEngine.Object? obj = null;
 						
 					EditorGUI.BeginChangeCheck();
 					obj = EditorGUILayout.ObjectField("Specify Object", obj, typeof(UnityEngine.Object), true);
@@ -69,14 +68,14 @@ public class BindMediumEditor: UnityEditor.Editor
 						var newType		= _extractedTypes[newSelection];
 						propTypeName.stringValue = $"{newType.FullName}, {newType.Assembly.FullName[..newType.Assembly.FullName.IndexOf(",", StringComparison.Ordinal)]}";
 						_extractedTypes	= null;
-						_findEnabled		= false;
+						_findEnabled	= false;
 					}
 				}
 			}
 			GUILayout.EndVertical();
 		}
 	}
-	private void DrawObjBindableFields	( )		
+	private			void	DrawObjBindableFields		( )		
 	{
 		GUILayout.Space(10);
 		GUILayout.Label("Bindable Fields", EditorStyles.boldLabel);
@@ -97,7 +96,7 @@ public class BindMediumEditor: UnityEditor.Editor
 
 				var currentValue = property.GetValue(dataStruct);
 				var propertyType = property.PropertyType;
-				Object newValue = null;
+				Object? newValue = null;
 				
 				GUI.enabled = property.CanWrite; 
 				EditorGUI.BeginChangeCheck();
@@ -147,7 +146,7 @@ public class BindMediumEditor: UnityEditor.Editor
 		}
 	}
 		
-	public static Type[] GetAllTypesFromObject(UnityEngine.Object unityObject)
+	public static	Type[]	GetAllTypesFromObject		( UnityEngine.Object unityObject )	
 	{
 		if (unityObject == null)
 			return Array.Empty<Type>();
@@ -189,8 +188,7 @@ public class BindMediumEditor: UnityEditor.Editor
 
 		return types.ToArray();
 	}
-
-	private static void AddTypeHierarchy(Type type, HashSet<Type> types)
+	private static	void	AddTypeHierarchy			( Type type, HashSet<Type> types )	
 	{
 		// Add the type itself
 		types.Add(type);
@@ -205,8 +203,7 @@ public class BindMediumEditor: UnityEditor.Editor
 			AddTypeHierarchy(nestedType, types);
 		}
 	}
-
-	private static String GetClassNamesFromFullName(String fullName)
+	private static	String	GetClassNamesFromFullName	( String fullName )					
 	{
 		if (String.IsNullOrEmpty(fullName))
 			return String.Empty;
@@ -220,6 +217,4 @@ public class BindMediumEditor: UnityEditor.Editor
 		var result = lastDotIndex >= 0 ? typeFullName.Substring(lastDotIndex + 1) : typeFullName;
 		return result.Replace("+", ".");
 	}
-
-		
 }

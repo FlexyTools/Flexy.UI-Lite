@@ -8,11 +8,11 @@
 		[SerializeField] Boolean	_isUnscaledTime	= true;
 
 		private		Single		_timer;
-		private		Binder[]	_binders;
+		private		Binder[]	_binders = null!;
 
 		private		void	Awake		( )	
 		{
-			_binders = GetComponents<Binder>( ).Where( c => c.enabled ).ToArray( );
+			_binders = GetComponents<Binder>().Where( c => c.enabled ).ToArray();
 		}
 		private		void	OnEnable	( )	
 		{

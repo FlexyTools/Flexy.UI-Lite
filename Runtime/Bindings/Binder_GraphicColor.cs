@@ -3,22 +3,22 @@
 	[BindTo(typeof(Color))]
 	public class Binder_GraphicColor : Binder
 	{
-		[SerializeField] Graphic _widget;
+		[SerializeField] Graphic _widget = null!;
 		[SerializeField] Boolean _useCustomAlpha;
 		[Range(0f,1f)]
 		[SerializeField] Single _customAlpha;
 	
 		private Color		_value;
-		private Func<Color>	_getter;
+		private Func<Color>	_getter = null!;
 
-		private				void	Awake	( )
+		private				void	Awake	( )					
 		{
 			if (_widget == null)
 				_widget = GetComponent<Graphic>();
 
 			Init(ref _getter);
 		}
-		protected override	void	Bind	( Boolean init )
+		protected override	void	Bind	( Boolean init )	
 		{
 			var color = _getter();
     

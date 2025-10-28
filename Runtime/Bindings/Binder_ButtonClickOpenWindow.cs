@@ -3,8 +3,8 @@
 	public class Binder_ButtonClickOpenWindow : MonoBehaviour
 	{
 		[Header("Click Options")]
-		[SerializeField] Single		_enableClickDelay		= 0.2f;
-		[SerializeField] Single		_reclickTimeout			= 0.5f;
+		[SerializeField] Single		_enableClickDelay	= 0.2f;
+		[SerializeField] Single		_reclickTimeout		= 0.5f;
 		
 		[Header("Actions")]
 		[SerializeField] FlexyEvent			_clicked;
@@ -12,7 +12,7 @@
 		
 		private		Single	_lastClickTime;
 		private		Single	_enableTime;
-		private		Button	_button;
+		private		Button	_button = null!;
 
 		private		void	Do			( )	
 		{
