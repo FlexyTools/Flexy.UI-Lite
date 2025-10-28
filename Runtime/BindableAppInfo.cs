@@ -1,6 +1,6 @@
 namespace Flexy.UI
 {
-	public class Service_UIGameFlow : Service_GameFlow
+	public class BindableAppInfo : BindableBehaviour
 	{
 		private String _cachedAppRev;
 		
