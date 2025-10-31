@@ -57,7 +57,7 @@ namespace Flexy.UI.Extra
 
 		private			void	Update			( )		
 		{
-			if (SkipByAnyKey && (Input.anyKeyDown || Input.touchCount > 0) && _player && _player.isPlaying)
+			if (SkipByAnyKey && (Input.anyKeyDown || Input.touchCount > 0) && _player && _player!.isPlaying)
 				_player.Stop();
 		}
 		private			void	OnValidate		( )		

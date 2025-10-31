@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿#if UNITY_TMPRO || UNITY_6_OR_NEWER
+using TMPro;
 
 namespace Flexy.UI.Bindings
 {
@@ -32,3 +33,4 @@ namespace Flexy.UI.Bindings
 		}
 	}
 }
+#endif
