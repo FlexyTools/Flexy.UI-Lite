@@ -22,7 +22,7 @@ public class BindMediumEditor: UnityEditor.Editor
 	}
 	private			void	DrawExpectedType			( )		
 	{
-		var propTypeName = serializedObject.FindProperty("ExpectedType"); 
+		var propTypeName = serializedObject.FindProperty("_expectedType"); 
 			
 		var typeString = propTypeName.stringValue;
 		var type = Type.GetType(typeString);

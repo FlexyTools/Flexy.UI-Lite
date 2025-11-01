@@ -2,9 +2,10 @@ namespace Flexy.UI.Bindings
 {
 	public class BindMedium : BindableBehaviour, IAutoSetup
 	{
-		[SerializeField]	String	ExpectedType = null!;
+		[FormerlySerializedAs("ExpectedType")] 
+		[SerializeField]	String	_expectedType = null!;
 
-		[Bindable(TypeProvider=nameof(ExpectedType))]
+		[Bindable(TypeProvider=nameof(_expectedType))]
 		public				Object?	DataObj {get;set;}
 
 		public		void	Setup	( Object? data ) => DataObj = data;

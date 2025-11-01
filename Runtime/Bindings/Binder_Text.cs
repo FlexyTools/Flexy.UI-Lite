@@ -1,4 +1,4 @@
-﻿#if UNITY_TMPRO || UNITY_6_OR_NEWER
+﻿#if UNITY_TMPRO || UNITY_6000_0_OR_NEWER
 using TMPro;
 
 namespace Flexy.UI.Bindings
