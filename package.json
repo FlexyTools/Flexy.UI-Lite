@@ -1,0 +1,20 @@
+{
+  "name": "fun.flexy.ui",
+  "displayName": "Flexy UI",
+  "version": "6.0.0",
+  "unity": "6000.0",
+  "description": "Flexy UI System based on MC-VMV framework",
+  "keywords": [
+    "ui",
+    "binding"
+  ],
+  "category": "UI",
+  "author": {
+    "name": "Flexy Tools",
+    "email": "JesObertyukh@gmail.com",
+    "url": "https://github.com/FlexyTools/Flexy.UI"
+  },
+  "dependencies": {
+    "fun.flexy.core": "6.0.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "name": "Flexy.UI",
+    "rootNamespace": "Flexy.UI",
+    "references": [
+        "GUID:0c7c5eb5b8006c2449ad5b70f4947317",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:8f8cd9da846c03a4e94c08df4d8e4e10",
+        "GUID:2826e3e6e3f61fb4aae556019adc28e8",
+        "GUID:0500b42cb82258245a8ba6d879e1c446",
+        "GUID:952594b0779ac704fb49e566e6c5c948",
+        "GUID:c36569617350e744791123f7832ebc17",
+        "GUID:9ee903389cdc80e4ca0f5690a5930c33",
+        "GUID:529b74b51f9df9847a64e490b76761e8",
+        "GUID:b2345dffd03d61845985704744bc5374",
+        "GUID:3cbf1d6e12448a44d8fc4aeb81e9f3ae",
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:256edf235aaa22546a31957a909c3e58",
+        "GUID:c2d73b1ba231ff24980f8cf4dc8ca275",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "3",
+            "define": "UNITY_CINEMANCHINE"
+        }
+    ],
+    "noEngineReferences": false
+}

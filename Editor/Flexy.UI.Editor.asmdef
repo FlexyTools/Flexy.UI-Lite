@@ -1,0 +1,23 @@
+{
+    "name": "Flexy.UI.Editor",
+    "rootNamespace": "Flexy.UI",
+    "references": [
+        "GUID:529b74b51f9df9847a64e490b76761e8",
+        "GUID:8f8cd9da846c03a4e94c08df4d8e4e10",
+        "GUID:2826e3e6e3f61fb4aae556019adc28e8",
+        "GUID:1dd2c2a3e78615a41855929317d34d0d",
+        "GUID:952594b0779ac704fb49e566e6c5c948",
+        "GUID:0500b42cb82258245a8ba6d879e1c446"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
