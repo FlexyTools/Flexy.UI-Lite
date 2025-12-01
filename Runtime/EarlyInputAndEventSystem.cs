@@ -21,7 +21,7 @@ namespace Flexy.UI
 		{
 			while (enabled)
 			{
-				await UniTask.NextFrame(PlayerLoopTiming.LastEarlyUpdate);
+				await UniTask.NextFrame(PlayerLoopTiming.EarlyUpdate);
 			
 				_samplerEarlyInputAndEventSystem.Begin();
 				{
