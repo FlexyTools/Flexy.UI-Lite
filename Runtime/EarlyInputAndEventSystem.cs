@@ -19,7 +19,7 @@ namespace Flexy.UI
 		protected override	void	Update			( ) { }
 		private async		UniTask	PreUpdateLoop	( )	
 		{
-			while (enabled)
+			while (this && enabled)
 			{
 				await UniTask.NextFrame(PlayerLoopTiming.EarlyUpdate);
 			
