@@ -5,11 +5,6 @@
 	{
 		[SerializeField, Tooltip("Will get from this GO if null")]
 		private		Slider	_slider = null!;
-
-		[Header("Tween")]
-		[SerializeField]	Boolean	_useTween;
-		[SerializeField]	Boolean	_startFromZero;
-		[SerializeField]	Single	_tweenTime;
 		
 		private		Func<Single>	_getter = null!;
 		private		Action<Single>?	_setter = null!;

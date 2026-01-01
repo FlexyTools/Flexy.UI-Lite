@@ -134,7 +134,7 @@ public class BindMediumEditor: UnityEditor.Editor
 		else
 		{
 			// Draw expected type bindable field labels
-			var propTypeName = serializedObject.FindProperty("ExpectedType"); 
+			var propTypeName = serializedObject.FindProperty("_expectedType"); 
 			var dataStructType = Type.GetType(propTypeName.stringValue);
 			if (dataStructType == null) 
 				return;
