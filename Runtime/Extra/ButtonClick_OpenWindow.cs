@@ -1,6 +1,6 @@
-﻿namespace Flexy.UI.Bindings
+﻿namespace Flexy.UI.Extra
 {
-	public class Binder_ButtonClickOpenWindow : MonoBehaviour
+	public class ButtonClick_OpenWindow : MonoBehaviour
 	{
 		[Header("Click Options")]
 		[SerializeField] Single		_enableClickDelay	= 0.2f;
@@ -30,7 +30,7 @@
 		private		void	OpenWindow	( )	
 		{
 			var state = gameObject.GetComponentInParent<State>( true );
-			state.Node.Graph.Open( _windowToOpen, state );
+			state.Node.Graph.Open( _windowToOpen, state.Node );
 		}
 
 		private		void	OnEnable	( )	

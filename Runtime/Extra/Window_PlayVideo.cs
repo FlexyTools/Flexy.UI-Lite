@@ -8,7 +8,7 @@ namespace Flexy.UI.Extra
 		public Boolean	PlayOnce = true;
 		public Boolean	SkipByAnyKey = true;
 
-		private Boolean IsVideoWasPlayed						
+		private Boolean IsVideoWasPlayed					
 		{
 			get => PlayerPrefs.GetInt( "Flexy.Boot.IsVideoWasPlayed", 0 ) != 0;
 			set => PlayerPrefs.SetInt( "Flexy.Boot.IsVideoWasPlayed", value ? 1 : 0 );
@@ -16,9 +16,10 @@ namespace Flexy.UI.Extra
 
 		private VideoPlayer? _player;
 
-		protected override void OnShow			( )		
+		protected override UniTask OnShow		( )		
 		{
 			PlayVideoAsync().Forget();
+			return default;
 		}
 
 		private async	UniTask	PlayVideoAsync	( )		

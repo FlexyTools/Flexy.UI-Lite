@@ -4,9 +4,10 @@
 	{
 		[SerializeField] Single		_showTime	= 2;
 
-		protected override	void	OnShow				( )		
+		protected override	UniTask	OnShow				( )		
 		{
 			ShowAllImagesAsync().Forget();
+			return default;
 		}
 		private async		UniTask	ShowAllImagesAsync	( )		
 		{
