@@ -1,6 +1,6 @@
 ﻿namespace Flexy.UI.Extra
 {
-	public class ButtonClick_OpenWindow : MonoBehaviour
+	public class ButtonClick_OpenWindow : UIWidget
 	{
 		[Header("Click Options")]
 		[SerializeField] Single		_enableClickDelay	= 0.2f;
@@ -25,12 +25,11 @@
 			_lastClickTime = Time.unscaledTime;
 				
 			OpenWindow();
-			_clicked.Raise( this );
+			_clicked.Raise(this);
 		}
 		private		void	OpenWindow	( )	
 		{
-			var state = gameObject.GetComponentInParent<State>( true );
-			state.Node.Graph.Open( _windowToOpen, state.Node );
+			State.Node.Graph.Open( _windowToOpen, State.Node );
 		}
 
 		private		void	OnEnable	( )	
@@ -39,14 +38,14 @@
 		}
 		private		void	Awake		( )	
 		{
-			_button = GetComponent<Button>( );
-			if( _button != null )
-				_button.onClick.AddListener( Do );
+			_button = GetComponent<Button>();
+			if (_button != null)
+				_button.onClick.AddListener(Do);
 		}
 		private		void	OnDestroy	( )	
 		{
-			if( _button )
-				_button.onClick.RemoveListener( Do );
+			if (_button)
+				_button.onClick.RemoveListener(Do);
 		}
 	}
 }
