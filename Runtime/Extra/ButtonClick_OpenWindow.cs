@@ -1,5 +1,6 @@
 ﻿namespace Flexy.UI.Extra
 {
+	[RequireComponent(typeof(Button))]
 	public class ButtonClick_OpenWindow : UIWidget
 	{
 		[Header("Click Options")]

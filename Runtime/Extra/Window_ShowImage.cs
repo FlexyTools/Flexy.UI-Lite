@@ -6,10 +6,10 @@
 
 		protected override	UniTask	OnShow				( )		
 		{
-			ShowAllImagesAsync().Forget();
+			DelayedClose().Forget();
 			return default;
 		}
-		private async		UniTask	ShowAllImagesAsync	( )		
+		private async		UniTask	DelayedClose	( )		
 		{
 			await UniTask.Delay( TimeSpan.FromSeconds(_showTime) );
 				
