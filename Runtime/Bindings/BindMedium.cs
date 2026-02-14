@@ -5,8 +5,8 @@ namespace Flexy.UI.Bindings
 		[SerializeField]	String	_expectedType = null!;
 
 		[Bindable(TypeProvider=nameof(_expectedType))]
-		public				Object?	DataObj {get;set;}
+		public				object?	DataObj {get;set;}
 
-		public		void	Setup	( Object? data ) => DataObj = data;
+		public		void	Setup	( object? data ) => DataObj = data;
 	}
 }
