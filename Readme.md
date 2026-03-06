@@ -13,7 +13,8 @@ Suitable for both rapid prototyping and long-term projects
 
 [GitHub](https://github.com/FlexyTools/Flexy.UI)
 | [Docs](https://github.com/FlexyTools/Flexy.Docs/blob/main/Framework/Flexy.UI/Readme.md)
-
+| [Forum](https://discussions.unity.com/t/flexy/1711631)
+| [AssetStore](https://u3d.as/3NM8)
 
 ## Overview
 

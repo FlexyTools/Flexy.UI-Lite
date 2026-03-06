@@ -23,8 +23,8 @@
     "url": "https://github.com/FlexyTools/Flexy.UI"
   },
   "dependencies": {
-    "fun.flexy.assetrefs": "6.0.0",
-	"fun.flexy.core": "6.0.6",
+    "fun.flexy.assetrefs": "6.1.0",
+	"fun.flexy.core": "6.1.0",
     "fun.flexy.gameflow": "6.1.0"
   }
 }
