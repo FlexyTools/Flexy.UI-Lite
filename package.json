@@ -1,7 +1,7 @@
 {
   "name": "fun.flexy.ui",
   "displayName": "Flexy UI Lite",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "unity": "2022.3",
   "description": "Clean, scalable, and production-proven UI screen management for Unity",
   "changelog": "Changelog.md",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "fun.flexy.assetrefs": "6.1.0",
-	"fun.flexy.core": "6.1.0",
-    "fun.flexy.gameflow": "6.1.0"
+	"fun.flexy.core": "6.1.2",
+    "fun.flexy.gameflow": "6.2.4"
   }
 }
