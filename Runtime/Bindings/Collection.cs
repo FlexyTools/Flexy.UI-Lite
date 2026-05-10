@@ -20,7 +20,7 @@
 		public  Action<Binder_Collection>?	DoneCallback	=> _doneCallback;
 		public	SetupCallback?				Setup			=> _setup;
 		
-		public	Boolean			IsEmpty			=> _collection == null || !_collection.GetEnumerator( ).MoveNext( );
+		public	Boolean			IsEmpty			=> _collection == null || !_collection.GetEnumerator().MoveNext();
 		public	IEnumerator		GetEnumerator()	=> _collection.GetEnumerator();
 
 		public delegate void	SetupCallback	( GameObject widget, object data, Boolean isNew, Int32 index );

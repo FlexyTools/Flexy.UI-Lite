@@ -1,8 +1,9 @@
-﻿namespace Flexy.UI.Bindings
+namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Boolean))]
 	public class Binder_ButtonEnabled : Binder
 	{
+		[Tooltip("Will get from this GO, if not set")]
 		[SerializeField] 	Button	_button = null!;
 		[SerializeField] 	Boolean	_revert;
 		
@@ -10,15 +11,15 @@
 
 		protected override	void	Bind	( Boolean init )	
 		{
-			var val = _revert ? !_getter( ) : _getter( );
+			var val = _revert ? !_getter() : _getter();
 			
 			if( val != _button.interactable )
 				_button.interactable = val;
 		}
 		private				void	Awake	( )					
 		{
-			if( _button == null )
-				_button = GetComponent<Button> ( );
+			if (_button == null)
+				_button = GetComponent<Button>();
 
 			Init( ref _getter );
 		}

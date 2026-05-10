@@ -6,13 +6,12 @@ namespace Flexy.UI
 	{
 		private Canvas _canvas = null!;
 
-		protected override void OnEnable()
+		protected override	void	OnEnable	( )		
 		{
 			_canvas = GetComponent<Canvas>();
 			base.OnEnable();
 		}
-
-		protected override void Handle()
+		protected override	void	Handle		( )		
 		{
 			if (_canvas == null || !_canvas.isRootCanvas)
 				return;

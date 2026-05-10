@@ -3,6 +3,7 @@
 	[BindTo(typeof(Color))]
 	public class Binder_GraphicColor : Binder
 	{
+		[Tooltip("Will get from this GO, if not set")]
 		[SerializeField] Graphic _widget = null!;
 		[SerializeField] Boolean _useCustomAlpha;
 		[Range(0f,1f)]

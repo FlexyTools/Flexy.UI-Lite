@@ -1,11 +1,10 @@
-﻿using Flexy.Core.Extensions;
-
-namespace Flexy.UI.Bindings
+﻿namespace Flexy.UI.Bindings
 {
 	[BindTo(typeof(Texture2D))]
 	public class Binder_RawImage : Binder
 	{
-		[SerializeField]	RawImage	_texture = null!;
+		[Tooltip("Will get from this GO, if not set")]
+		[SerializeField]	RawImage	_rawImage = null!;
 		[SerializeField]	Boolean		_disableOnNullValue		= true;
 		[SerializeField]	Boolean		_ignoreNullValue		= true;
 
@@ -16,18 +15,18 @@ namespace Flexy.UI.Bindings
 			var texture = _getter();
 
 			if (_disableOnNullValue)
-				_texture.enabled = texture.IsAlive();
+				_rawImage.enabled = texture.IsAlive();
 
 			if (texture.IsAlive())
-				_texture.texture = texture;
+				_rawImage.texture = texture;
 				
 			else if (!_ignoreNullValue) 
-				_texture.texture = null;
+				_rawImage.texture = null;
 		}
 		private				void	Awake	( )					
 		{
-			if( !_texture )
-				_texture = GetComponent<RawImage>( );
+			if (!_rawImage)
+				_rawImage = GetComponent<RawImage>( );
 			
 			Init( ref _getter );
 		}

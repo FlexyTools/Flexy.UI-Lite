@@ -10,10 +10,10 @@
 
 		protected override	void	Bind	( Boolean init )	
 		{
-		    var isTrue					= _getter( );
+		    var isTrue	= _getter( );
 
-		    if( _true != null )			_true.enabled =  isTrue;
-			if( _false != null )		_false.enabled =  !isTrue;
+		    if (_true != null)		_true.enabled	= isTrue;
+			if (_false != null)		_false.enabled	= !isTrue;
 		}
 		private				void	Awake	( )					
 		{

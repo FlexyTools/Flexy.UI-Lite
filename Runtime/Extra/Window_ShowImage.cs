@@ -4,7 +4,7 @@
 	{
 		[SerializeField] Single		_showTime	= 2;
 
-		protected override	UniTask	OnShow				( )		
+		protected override	UniTask	OnShow			( )		
 		{
 			DelayedClose().Forget();
 			return default;

@@ -6,7 +6,7 @@ namespace Flexy.UI.Bindings
 	[BindTo(typeof(String))]
 	public class Binder_Text : Binder
 	{
-		[Tooltip("Will get from this GO if null")]
+		[Tooltip("Will get from this GO, if not set")]
 		[SerializeField]	TMP_Text	_label = null!;
 
 		private		Func<String>	_getter = null!;
@@ -17,7 +17,7 @@ namespace Flexy.UI.Bindings
 			var text = _getter();
 
 			//if nothing changed and this is not first time then return
-			if( !init && _value == text )
+			if (!init && _value == text)
 				return;
 			
 			_value = text;
@@ -26,7 +26,7 @@ namespace Flexy.UI.Bindings
 		}
 		private				void	Awake	( )				
 		{
-			if( _label == null )
+			if (_label == null)
 				_label = GetComponent<TMP_Text> ( );
 
 			Init( ref _getter );

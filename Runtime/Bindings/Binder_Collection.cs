@@ -1,5 +1,4 @@
-﻿using Flexy.Core.Extensions;
-using GameObject = UnityEngine.GameObject;
+﻿using GameObject = UnityEngine.GameObject;
 
 namespace Flexy.UI.Bindings
 {
@@ -10,8 +9,7 @@ namespace Flexy.UI.Bindings
 		[SerializeField] protected	Transform	_container = null!;
 		[SerializeField] protected	GameObject	_prefab = null!;
 
-		protected Func<Collection> _getter = null!;
-		protected Boolean _preventDestroyItemsOnDisable;
+		protected Func<Collection>	_getter = null!;
 		
 		public	Transform	Container => _container;
 
@@ -34,10 +32,9 @@ namespace Flexy.UI.Bindings
 				dataIndex++;
 				
 				_prefab.SetActive(false);
-				var itemWidget = Instantiate(_prefab);
+				var itemWidget = Instantiate(_prefab, itemsContainer, false);
 				_prefab.ClearEditorDirty();
-				
-				itemWidget.transform.SetParent(itemsContainer, false);
+
 				itemWidget.transform.localScale = Vector3.one;
 				
 				if (itemWidget.TryGetComponent<IAutoSetup>(out var autoSetup))
@@ -62,15 +59,12 @@ namespace Flexy.UI.Bindings
 		}
 		protected override	void	OnDisable	( )		
 		{
-			base.OnDisable( );
+			base.OnDisable();
 			
-			if( _preventDestroyItemsOnDisable )
-				return;
-			
-			foreach ( Transform item in _container )
+			foreach (Transform item in _container)
 			{
-				item.gameObject.SetActive( false );
-				Destroy( item.gameObject );
+				item.gameObject.SetActive(false);
+				Destroy(item.gameObject);
 			}
 		}
 	}
