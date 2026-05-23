@@ -4,6 +4,7 @@
 	public class Binder_RawImage : Binder
 	{
 		[Tooltip("Will get from this GO, if not set")]
+		[FormerlySerializedAs("_texture")]
 		[SerializeField]	RawImage	_rawImage = null!;
 		[SerializeField]	Boolean		_disableOnNullValue		= true;
 		[SerializeField]	Boolean		_ignoreNullValue		= true;
